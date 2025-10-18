@@ -1,0 +1,102 @@
+@import "../styles/variables";
+@import "../styles/mixins";
+
+.section {
+  @include section-spacing;
+  background-color: $white;
+}
+
+.container {
+  @include container;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: $spacing-3xl;
+}
+
+.title {
+  @include heading-display;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: $spacing-md;
+}
+
+.description {
+  font-size: 1.125rem;
+  color: $brown-primary;
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.servicesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.serviceCard {
+  @include gradient-light;
+  border-radius: $radius-2xl;
+  padding: $spacing-lg;
+  box-shadow: $shadow-lg;
+  border: 2px solid $border-color;
+}
+
+.serviceTitle {
+  @include heading-display;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  color: $brown-primary;
+  margin-bottom: $spacing-md;
+}
+
+.serviceList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.serviceItem {
+  display: flex;
+  align-items: flex-start;
+  color: $foreground;
+
+  .checkmark {
+    color: $brown-primary;
+    margin-right: $spacing-sm;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+}
+
+.premiumCard {
+  @include gradient-primary;
+  border-radius: $radius-2xl;
+  padding: $spacing-lg;
+  box-shadow: $shadow-2xl;
+  color: $white;
+
+  .serviceTitle {
+    color: $white;
+  }
+
+  .serviceItem {
+    color: $white;
+    align-items: flex-start;
+
+    .icon {
+      margin-right: $spacing-sm;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    span {
+      opacity: 0.9;
+    }
+  }
+}

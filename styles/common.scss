@@ -1,0 +1,75 @@
+@import "./variables";
+@import "./mixins";
+
+// Common section styles
+.section {
+  @include section-spacing;
+  width: 100%;
+}
+
+.sectionWhite {
+  @extend .section;
+  background-color: $white;
+}
+
+.sectionCream {
+  @extend .section;
+  background-color: $cream;
+}
+
+.sectionGradient {
+  @extend .section;
+  @include gradient-light;
+}
+
+.container {
+  @include container;
+}
+
+// Common heading styles
+.sectionHeader {
+  text-align: center;
+  margin-bottom: $spacing-3xl;
+  max-width: 60rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sectionSubtitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: $brown-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: $spacing-sm;
+}
+
+.sectionTitle {
+  @include heading-display;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: $spacing-md;
+}
+
+.sectionDescription {
+  font-size: 1.125rem;
+  color: $brown-primary;
+  line-height: 1.7;
+}
+
+// Common card grid
+.cardGrid {
+  @include grid-auto-fit(300px);
+}
+
+.card {
+  @include card;
+}
+
+// Common buttons
+.btnPrimary {
+  @include button-primary;
+}
+
+.btnSecondary {
+  @include button-secondary;
+}

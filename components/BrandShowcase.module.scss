@@ -1,0 +1,82 @@
+@import "../styles/variables";
+@import "../styles/mixins";
+
+.section {
+  @include section-spacing;
+  background-color: $white;
+}
+
+.container {
+  @include container;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: $spacing-3xl;
+}
+
+.title {
+  @include heading-display;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: $spacing-md;
+}
+
+.description {
+  font-size: 1.125rem;
+  color: $brown-primary;
+}
+
+.brandsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-md;
+
+  @include respond-to("md") {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include respond-to("lg") {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.brandCard {
+  @include gradient-light;
+  border-radius: $radius-xl;
+  padding: $spacing-md;
+  box-shadow: $shadow-md;
+  border: 2px solid $border-color;
+  @include flex-center;
+  min-height: 120px;
+  transition: all $transition-normal;
+
+  &:hover {
+    box-shadow: $shadow-lg;
+    transform: translateY(-2px);
+  }
+}
+
+.brandName {
+  text-align: center;
+  font-weight: 700;
+  color: $brown-primary;
+  font-size: 1.125rem;
+}
+
+.note {
+  text-align: center;
+  margin-top: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  .noteText {
+    color: $brown-secondary;
+    font-style: italic;
+  }
+
+  .contactText {
+    color: $foreground;
+    font-weight: 600;
+  }
+}

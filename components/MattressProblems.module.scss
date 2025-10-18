@@ -1,0 +1,317 @@
+@import "../styles/variables";
+@import "../styles/mixins";
+
+.section {
+  @include section-spacing;
+  background-color: $white;
+}
+
+.container {
+  @include container;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: $spacing-3xl;
+}
+
+.title {
+  @include heading-display;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: $spacing-md;
+}
+
+.description {
+  font-size: 1.125rem;
+  color: $brown-primary;
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.problemsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+  margin-bottom: $spacing-3xl;
+
+  @include respond-to("md") {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to("lg") {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.problemCard {
+  @include gradient-light;
+  padding: $spacing-md;
+  border-radius: $radius-2xl;
+  border: 2px solid $border-color;
+  transition: all $transition-normal;
+
+  &:hover {
+    border-color: $brown-secondary;
+    box-shadow: $shadow-lg;
+  }
+}
+
+.icon {
+  font-size: 3rem;
+  margin-bottom: $spacing-sm;
+}
+
+.problemTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: $foreground;
+  margin-bottom: $spacing-xs;
+}
+
+.problemDescription {
+  color: $brown-secondary;
+}
+
+.encouragementBanner {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(245, 241, 235, 0.6) 0%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(245, 241, 235, 0.6) 100%
+  );
+  backdrop-filter: blur(10px);
+  border-radius: $radius-3xl;
+  padding: $spacing-2xl $spacing-lg;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(139, 111, 71, 0.12),
+    0 8px 20px rgba(139, 111, 71, 0.08),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  border: 2px solid transparent;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  @include respond-to("md") {
+    padding: $spacing-3xl $spacing-2xl;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(
+      135deg,
+      $accent-gold 0%,
+      transparent 30%,
+      transparent 70%,
+      $accent-gold 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.6;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 70px rgba(139, 111, 71, 0.15),
+      0 12px 30px rgba(139, 111, 71, 0.1),
+      inset 0 1px 2px rgba(255, 255, 255, 0.9);
+  }
+}
+
+.bannerBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.circle {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(212, 165, 116, 0.15) 0%,
+    rgba(212, 165, 116, 0.05) 50%,
+    transparent 70%
+  );
+  animation: float 6s ease-in-out infinite;
+
+  &:nth-child(1) {
+    animation-delay: 0s;
+    animation-duration: 7s;
+  }
+
+  &:nth-child(2) {
+    animation-delay: 2s;
+    animation-duration: 8s;
+    width: 200px;
+    height: 200px;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 4s;
+    animation-duration: 9s;
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(20px, -20px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+.bannerContent {
+  position: relative;
+  z-index: 1;
+}
+
+.iconWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto $spacing-lg;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $accent-gold, $brown-secondary);
+  box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3),
+    0 4px 10px rgba(212, 165, 116, 0.2);
+  animation: pulse 3s ease-in-out infinite;
+
+  @include respond-to("md") {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3),
+      0 4px 10px rgba(212, 165, 116, 0.2);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(212, 165, 116, 0.4),
+      0 6px 15px rgba(212, 165, 116, 0.3);
+  }
+}
+
+.sparkleIcon {
+  width: 40px;
+  height: 40px;
+  color: $white;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+
+  @include respond-to("md") {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+.encouragementText {
+  @include heading-display;
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  line-height: 1.3;
+  color: $brown-dark;
+  font-weight: 700;
+  margin-bottom: $spacing-md;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, $brown-dark 0%, $brown-primary 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subText {
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  font-weight: 400;
+  color: $brown-primary;
+  font-style: italic;
+  opacity: 0.85;
+  margin: $spacing-md auto 0;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.decorativeElements {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  margin-top: $spacing-lg;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $accent-gold, $brown-secondary);
+  animation: dotPulse 2s ease-in-out infinite;
+
+  &:first-child {
+    animation-delay: 0s;
+  }
+
+  &:last-child {
+    animation-delay: 0.4s;
+  }
+}
+
+@keyframes dotPulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.line {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    $accent-gold 50%,
+    transparent 100%
+  );
+  animation: lineGlow 2s ease-in-out infinite;
+}
+
+@keyframes lineGlow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(212, 165, 116, 0.5);
+  }
+}

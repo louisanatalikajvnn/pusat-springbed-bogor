@@ -1,0 +1,148 @@
+@import "../styles/variables";
+@import "../styles/mixins";
+
+/* Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Root Styles */
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: $background;
+  color: $foreground;
+  font-family: $font-sans;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Main container */
+main {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Container utility */
+.container {
+  @include container;
+}
+
+/* Remove default link styles */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Better image handling */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Remove input defaults */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove button default styles */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Improve text rendering */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Fix for potential overflow issues */
+#root,
+#__next {
+  isolation: isolate;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.grid {
+  display: grid;
+}
+
+.hidden {
+  display: none;
+}
+
+@include respond-to("sm") {
+  .sm\:block {
+    display: block;
+  }
+}
+
+@include respond-to("md") {
+  .md\:block {
+    display: block;
+  }
+  .md\:flex {
+    display: flex;
+  }
+}
+
+@include respond-to("lg") {
+  .lg\:block {
+    display: block;
+  }
+  .lg\:flex {
+    display: flex;
+  }
+}

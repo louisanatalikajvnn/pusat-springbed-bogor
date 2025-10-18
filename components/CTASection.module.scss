@@ -1,0 +1,101 @@
+@import "../styles/variables";
+@import "../styles/mixins";
+
+.section {
+  @include section-spacing;
+  @include gradient-primary;
+}
+
+.container {
+  @include container;
+}
+
+.content {
+  text-align: center;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.title {
+  @include heading-display;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.2;
+  color: $white;
+}
+
+.description {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  line-height: 1.7;
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.tagline {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  margin: $spacing-lg 0;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  align-items: center;
+  padding-top: $spacing-sm;
+
+  @include respond-to("sm") {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.primaryButton {
+  @include flex-center;
+  padding: 1.25rem 2.5rem;
+  background-color: $white;
+  color: $brown-primary;
+  border-radius: $radius-full;
+  font-size: 1.25rem;
+  font-weight: 700;
+  box-shadow: $shadow-2xl;
+  transition: all $transition-normal;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $cream;
+    box-shadow: 0 30px 40px -15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+  }
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: $spacing-sm;
+  }
+}
+
+.whatsappButton {
+  @include flex-center;
+  padding: 1.25rem 2.5rem;
+  background-color: #10b981;
+  color: $white;
+  border-radius: $radius-full;
+  font-size: 1.25rem;
+  font-weight: 700;
+  box-shadow: $shadow-2xl;
+  transition: all $transition-normal;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #059669;
+    transform: scale(1.05);
+  }
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: $spacing-sm;
+  }
+}

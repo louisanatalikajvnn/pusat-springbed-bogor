@@ -1,0 +1,148 @@
+@import "./variables";
+
+// Responsive mixins
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "sm" {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $breakpoint == "md" {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $breakpoint == "lg" {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $breakpoint == "xl" {
+    @media (min-width: $breakpoint-xl) {
+      @content;
+    }
+  } @else if $breakpoint == "2xl" {
+    @media (min-width: $breakpoint-2xl) {
+      @content;
+    }
+  }
+}
+
+// Container mixin
+@mixin container {
+  width: 100%;
+  max-width: $breakpoint-xl;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $spacing-sm;
+  padding-right: $spacing-sm;
+
+  @include respond-to("sm") {
+    padding-left: $spacing-md;
+    padding-right: $spacing-md;
+  }
+
+  @include respond-to("lg") {
+    padding-left: $spacing-lg;
+    padding-right: $spacing-lg;
+  }
+}
+
+// Button mixin
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm $spacing-lg;
+  font-weight: 600;
+  border-radius: $radius-full;
+  transition: all $transition-normal;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background-color: $brown-primary;
+  color: $white;
+  box-shadow: $shadow-lg;
+
+  &:hover {
+    background-color: $brown-dark;
+    box-shadow: $shadow-xl;
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background-color: $white;
+  color: $brown-primary;
+  border: 2px solid $brown-primary;
+
+  &:hover {
+    background-color: $brown-primary;
+    color: $white;
+  }
+}
+
+// Card mixin
+@mixin card {
+  background-color: $white;
+  border-radius: $radius-2xl;
+  padding: $spacing-lg;
+  box-shadow: $shadow-md;
+  transition: all $transition-normal;
+
+  &:hover {
+    box-shadow: $shadow-xl;
+    transform: translateY(-4px);
+  }
+}
+
+// Gradient backgrounds
+@mixin gradient-primary {
+  background: linear-gradient(135deg, $brown-primary, $brown-dark);
+}
+
+@mixin gradient-secondary {
+  background: linear-gradient(135deg, $brown-secondary, $brown-primary);
+}
+
+@mixin gradient-light {
+  background: linear-gradient(135deg, $cream, $border-color);
+}
+
+// Section spacing
+@mixin section-spacing {
+  padding-top: $spacing-3xl;
+  padding-bottom: $spacing-3xl;
+
+  @include respond-to("md") {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+// Heading styles
+@mixin heading-display {
+  font-family: $font-serif;
+  font-weight: 700;
+  color: $foreground;
+  line-height: 1.2;
+}
+
+// Flex center
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Grid auto-fit
+@mixin grid-auto-fit($min-width: 250px) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+  gap: $spacing-lg;
+}
