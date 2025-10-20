@@ -96,7 +96,9 @@ export default function Footer() {
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
-                <a href="mailto:info@kingservice.com">info@kingservice.com</a>
+                <a href="mailto:info@pusatspringbedbogor.com">
+                  info@pusatspringbedbogor.com
+                </a>
               </li>
               <li className={styles.contactItem}>
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -129,7 +131,7 @@ export default function Footer() {
             <h4 className={styles.sectionTitle}>Lokasi Kami</h4>
             <div className={styles.mapWrapper}>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.56347862248!2d106.68942995820312!3d-6.597629699999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5d2e602b501%3A0x25a12f0f97fac4ee!2sBogor%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1234567890123!5m2!1sen!2sid"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.9134015165705!2d106.80953237601697!3d-6.532620793460081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c3929bc1e141%3A0x877283e188697443!2sPusat%20Springbed%20Bogor!5e0!3m2!1sid!2sid!4v1760927190677!5m2!1sid!2sid"
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

@@ -144,18 +144,6 @@ export default function SwipeableCards() {
           );
         })}
       </div>
-
-      <p className={styles.swipeHint}>
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M7 16l-4-4m0 0l4-4m-4 4h18"
-          />
-        </svg>
-        <span>Swipe untuk melihat</span>
-      </p>
     </div>
   );
 }

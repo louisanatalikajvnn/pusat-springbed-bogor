@@ -9,6 +9,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  // Extra small screens (< 400px)
+  @media (max-width: 399px) {
+    height: 80%;
+    max-height: 280px;
+    margin-top: $spacing-lg;
+  }
 }
 
 .cardStack {
@@ -37,6 +44,13 @@
   transform-style: preserve-3d;
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   border: 2px solid rgba(255, 255, 255, 0.3);
+
+  // Extra small screens (< 400px)
+  @media (max-width: 399px) {
+    width: 90%;
+    max-width: 260px;
+    aspect-ratio: 4 / 5;
+  }
 }
 
 .cardTop {
@@ -81,6 +95,11 @@
   align-items: flex-end;
   justify-content: center;
   padding: $spacing-xl;
+
+  // Extra small screens (< 400px)
+  @media (max-width: 399px) {
+    padding: $spacing-md;
+  }
 }
 
 .cardContent {
@@ -98,6 +117,12 @@
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8), 0 4px 8px rgba(0, 0, 0, 0.6);
   line-height: 1.2;
 
+  // Extra small screens (< 400px)
+  @media (max-width: 399px) {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+  }
+
   @include respond-to("md") {
     font-size: 2rem;
   }
@@ -108,6 +133,11 @@
   opacity: 0.95;
   font-weight: 400;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+
+  // Extra small screens (< 400px)
+  @media (max-width: 399px) {
+    font-size: 0.875rem;
+  }
 
   @include respond-to("md") {
     font-size: 1.125rem;
