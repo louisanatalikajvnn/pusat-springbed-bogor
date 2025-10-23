@@ -1,13 +1,20 @@
 "use client";
 
 import { useState, useRef } from "react";
+import Image, { StaticImageData } from "next/image";
 import styles from "./SwipeableCards.module.scss";
+
+// Import images statically
+import perbaikanPegas from "../public/images/hero/perbaikan-pegas.png";
+import pergantianBusa from "../public/images/hero/pergantian-busa.png";
+import reUpholstery from "../public/images/hero/re-upholstery.png";
+import kustomisasiKasur from "../public/images/hero/kustomisasi-kasur.png";
 
 interface Card {
   id: number;
   title: string;
   subtitle: string;
-  image: string;
+  image: StaticImageData;
 }
 
 export default function SwipeableCards() {
@@ -16,29 +23,25 @@ export default function SwipeableCards() {
       id: 1,
       title: "Perbaikan Pegas",
       subtitle: "Spring Repair Expert",
-      image:
-        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&h=1000&fit=crop",
+      image: perbaikanPegas,
     },
     {
       id: 2,
       title: "Penggantian Busa",
       subtitle: "Premium Foam Replacement",
-      image:
-        "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=1000&fit=crop",
+      image: pergantianBusa,
     },
     {
       id: 3,
       title: "Re-Upholstery",
       subtitle: "Cover Renewal Service",
-      image:
-        "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=800&h=1000&fit=crop",
+      image: reUpholstery,
     },
     {
       id: 4,
       title: "Kustomisasi Kasur",
       subtitle: "Custom Mattress Design",
-      image:
-        "https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=800&h=1000&fit=crop",
+      image: kustomisasiKasur,
     },
   ];
 
@@ -128,12 +131,16 @@ export default function SwipeableCards() {
               onTouchMove={handleDragMove}
               onTouchEnd={handleDragEnd}
             >
-              <div
-                className={styles.cardImage}
-                style={{
-                  backgroundImage: `url(${card.image})`,
-                }}
-              />
+              <div className={styles.cardImage}>
+                <Image
+                  src={card.image}
+                  alt={card.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 480px"
+                  style={{ objectFit: "cover" }}
+                  priority={index === 0}
+                />
+              </div>
               <div className={styles.cardOverlay}>
                 <div className={styles.cardContent}>
                   <h3 className={styles.cardTitle}>{card.title}</h3>

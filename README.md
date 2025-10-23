@@ -141,7 +141,7 @@ Edit informasi kontak di:
 Ganti placeholder berikut:
 
 - `+62 XXX XXXX XXXX` dengan nomor telepon aktual
-- `info@kingservice.com` dengan email aktual
+- `info@pusatspringbedbogor.com` dengan email aktual
 - Update URL social media (Facebook, Instagram, TikTok, YouTube)
 - Update koordinat Google Maps di Footer
 
@@ -187,7 +187,7 @@ Update link di `components/Footer.tsx` dengan akun media sosial Anda.
 
 Untuk pertanyaan atau dukungan:
 
-- Email: info@kingservice.com
+- Email: info@pusatspringbedbogor.com
 - Phone: +62 XXX XXXX XXXX
 - WhatsApp: [Update dengan nomor aktual]
 - Lokasi: Bogor, Jawa Barat

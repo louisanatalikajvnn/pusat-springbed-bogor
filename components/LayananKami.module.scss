@@ -3,50 +3,193 @@
 
 .section {
   @include section-spacing;
-  background-color: $white;
+  background: linear-gradient(
+    180deg,
+    $background 0%,
+    $white 50%,
+    $background 100%
+  );
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(
+      circle at 20px 20px,
+      rgba(139, 111, 71, 0.03) 1px,
+      transparent 1px
+    );
+    background-size: 40px 40px;
+    pointer-events: none;
+    opacity: 0.5;
+  }
 }
 
 .container {
   @include container;
+  position: relative;
+  z-index: 1;
 }
 
 .header {
   text-align: center;
   margin-bottom: $spacing-3xl;
+  position: relative;
 }
 
 .title {
   @include heading-display;
   font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: $spacing-md;
+  margin-bottom: $spacing-sm;
+  color: $brown-dark;
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, $brown-primary 0%, $accent-gold 100%);
+    border-radius: $radius-full;
+  }
 }
 
 .description {
   font-size: 1.125rem;
   color: $brown-primary;
   max-width: 60rem;
-  margin: 0 auto;
+  margin: $spacing-lg auto 0;
+  line-height: 1.7;
+  font-weight: 400;
 }
 
 .servicesContainer {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-lg;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .serviceCard {
-  @include gradient-light;
+  position: relative;
+  background: $white;
   border-radius: $radius-2xl;
-  padding: $spacing-lg;
+  overflow: hidden;
   box-shadow: $shadow-lg;
-  border: 2px solid $border-color;
+  border: 1px solid $border-color;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      $brown-primary 0%,
+      $accent-gold 50%,
+      $brown-primary 100%
+    );
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-2xl;
+    border-color: $brown-secondary;
+
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f5f1ec 0%, #e8dfd6 100%);
+  flex-shrink: 0;
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(44, 24, 16, 0) 0%,
+    rgba(44, 24, 16, 0.05) 100%
+  );
+  z-index: 1;
+  transition: opacity 0.3s ease;
+
+  .serviceCard:hover & {
+    opacity: 0.8;
+  }
+}
+
+.serviceImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  .serviceCard:hover & {
+    transform: scale(1.08);
+  }
+}
+
+.serviceContent {
+  padding: $spacing-xl $spacing-lg $spacing-lg;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, $white 0%, rgba(249, 247, 244, 0.3) 100%);
+}
+
+.titleSection {
+  margin-bottom: $spacing-md;
 }
 
 .serviceTitle {
   @include heading-display;
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
-  color: $brown-primary;
-  margin-bottom: $spacing-md;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  color: $brown-dark;
+  margin-bottom: $spacing-xs;
+  line-height: 1.3;
+}
+
+.titleAccent {
+  width: 90%;
+  height: 3px;
+  background: linear-gradient(90deg, $brown-primary 0%, $accent-gold 100%);
+  border-radius: $radius-full;
+  transition: width 0.3s ease;
+
+  .serviceCard:hover & {
+    width: 100%;
+  }
 }
 
 .serviceList {
@@ -54,49 +197,157 @@
   display: flex;
   flex-direction: column;
   gap: $spacing-sm;
+  margin: 0;
+  padding: 0;
 }
 
 .serviceItem {
   display: flex;
   align-items: flex-start;
+  gap: $spacing-sm;
   color: $foreground;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  padding: $spacing-xs 0;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateX(4px);
+
+    .checkmark {
+      transform: scale(1.1);
+      color: $accent-gold;
+    }
+  }
 
   .checkmark {
     color: $brown-primary;
-    margin-right: $spacing-sm;
-    font-size: 1.25rem;
     flex-shrink: 0;
+    margin-top: 0.15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+    svg {
+      display: block;
+      filter: drop-shadow(0 1px 2px rgba(139, 111, 71, 0.2));
+    }
   }
 }
 
 .premiumCard {
+  position: relative;
   @include gradient-primary;
   border-radius: $radius-2xl;
-  padding: $spacing-lg;
+  padding: $spacing-2xl $spacing-xl $spacing-xl;
   box-shadow: $shadow-2xl;
   color: $white;
+  grid-column: 1 / -1;
+  margin-top: $spacing-xl;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.08) 0%,
+      transparent 70%
+    );
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.06) 0%,
+      transparent 70%
+    );
+    border-radius: 50%;
+    pointer-events: none;
+  }
 
   .serviceTitle {
+    position: relative;
     color: $white;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    text-align: center;
+    margin-bottom: $spacing-xs;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+    &::after {
+      content: "";
+      display: block;
+      width: 120px;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, $white, transparent);
+      margin: $spacing-md auto $spacing-xl;
+      border-radius: $radius-full;
+    }
+  }
+
+  .serviceList {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $spacing-lg;
+    }
   }
 
   .serviceItem {
+    position: relative;
     color: $white;
     align-items: flex-start;
+    padding: $spacing-lg;
+    border-radius: $radius-xl;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      transform: translateY(-4px);
+
+      .icon {
+        transform: scale(1.2) rotate(5deg);
+      }
+    }
 
     .icon {
-      margin-right: $spacing-sm;
-      font-size: 1.25rem;
+      margin-right: $spacing-md;
+      font-size: 2rem;
       flex-shrink: 0;
+      transition: transform 0.3s ease;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
     }
 
     strong {
       display: block;
-      margin-bottom: 0.25rem;
+      margin-bottom: $spacing-xs;
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     }
 
     span {
-      opacity: 0.9;
+      opacity: 0.95;
+      display: block;
+      line-height: 1.7;
+      font-size: 0.95rem;
     }
   }
 }
