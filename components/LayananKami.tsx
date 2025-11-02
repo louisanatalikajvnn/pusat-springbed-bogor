@@ -30,6 +30,16 @@ const services: Service[] = [
     ],
   },
   {
+    title: "Perbaikan Estetika dan Kebersihan",
+    image: "/images/services/perbaikan-estetika-dan-kebersihan.png",
+    imageAlt: "Perbaikan estetika dan kebersihan kasur",
+    items: [
+      "Perbaikan kain cover kasur yang sobek atau lusuh",
+      "Jasa cuci kasur untuk membersihkan dari debu, noda, dan jamur",
+      "Penyegaran kasur dengan penghilangan bau tidak sedap",
+    ],
+  },
+  {
     title: "Kustomisasi Kasur",
     image: "/images/services/kustomisasi-kasur.png",
     imageAlt: "Kustomisasi dan modifikasi kasur",
@@ -46,6 +56,14 @@ const services: Service[] = [
     items: [
       "Perbaikan divan dan headboard",
       "Modifikasi ukuran divan dan headboard, potong atau tambah ukuran",
+    ],
+  },
+  {
+    title: "Layanan Produksi Masal",
+    image: "/images/services/layanan-produksi-masal.png",
+    imageAlt: "Layanan produksi masal kasur",
+    items: [
+      "Produksi kasur dalam jumlah besar untuk kebutuhan hotel atau kost",
     ],
   },
 ];

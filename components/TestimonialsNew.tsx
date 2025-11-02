@@ -3,46 +3,46 @@ import styles from "./TestimonialsNew.module.scss";
 export default function TestimonialsNew() {
   const testimonials = [
     {
-      name: "Ibu Sarah Wijaya",
+      name: "Ipang Saputra",
       rating: 5,
-      date: "2 minggu yang lalu",
-      text: "Pelayanan sangat memuaskan! Kasur saya yang sudah 8 tahun seperti baru lagi. Tim Pusat Springbed Bogor sangat profesional dan hasil pekerjaannya luar biasa. Harga terjangkau dan sepadan dengan kualitas yang diberikan. Highly recommended!",
+      date: "setahun lalu",
+      text: "",
+      photo: "I",
+    },
+    {
+      name: "Sasa Sutedja",
+      rating: 5,
+      date: "3 tahun yang lalu",
+      text: "",
       photo: "S",
     },
     {
-      name: "Bapak Ahmad Hidayat",
+      name: "Benedius Mikael",
       rating: 5,
-      date: "1 bulan yang lalu",
-      text: "Profesional dan cepat! Kasur hotel kami yang rusak bisa diperbaiki dengan sempurna. Sangat merekomendasikan untuk yang butuh perbaikan springbed. Garansi 10 tahun untuk spring memberikan peace of mind. Terima kasih Pusat Springbed Bogor!",
+      date: "3 tahun yang lalu",
+      text: "",
+      photo: "B",
+    },
+    {
+      name: "Helbert Hoesada",
+      rating: 5,
+      date: "3 tahun yang lalu",
+      text: "",
+      photo: "H",
+    },
+    {
+      name: "Altius Oriandy",
+      rating: 5,
+      date: "3 tahun yang lalu",
+      text: "",
       photo: "A",
     },
     {
-      name: "Ibu Dewi Kusuma",
+      name: "Varell Andrew",
       rating: 5,
-      date: "3 minggu yang lalu",
-      text: "Awalnya ragu karena kasur sudah sangat rusak, tapi setelah dicoba hasilnya luar biasa! Kasur yang tadinya kempes dan berbunyi sekarang empuk dan nyaman kembali. Layanan antar jemput gratis juga sangat membantu. Terima kasih banyak!",
-      photo: "D",
-    },
-    {
-      name: "Bapak Rizki Pratama",
-      rating: 5,
-      date: "1 minggu yang lalu",
-      text: "Service terbaik untuk kasur! Teknisinya sangat berpengalaman dan menjelaskan setiap proses dengan detail. Kasur saya yang pegas rusak dan busa kempes sekarang seperti beli baru. Harganya jauh lebih murah daripada beli kasur baru.",
-      photo: "R",
-    },
-    {
-      name: "Ibu Linda Sari",
-      rating: 5,
-      date: "2 bulan yang lalu",
-      text: "Sangat puas dengan hasil kerja Pusat Springbed Bogor! Kasur yang cover-nya sobek dan busa mengempis sekarang cantik dan nyaman lagi. Proses cepat hanya 5 hari. Pelayanan ramah dan komunikatif. Pasti akan rekomendasikan ke teman-teman!",
-      photo: "L",
-    },
-    {
-      name: "Bapak Dedi Suryanto",
-      rating: 5,
-      date: "3 minggu yang lalu",
-      text: "Excellent service! Kasur spring bed merk imported saya yang rusak bisa diperbaiki dengan sempurna. Tidak perlu import baru dari luar negeri. Teknisi Pusat Springbed Bogor sangat ahli dan paham berbagai jenis kasur. Worth every penny!",
-      photo: "D",
+      date: "3 tahun yang lalu",
+      text: "",
+      photo: "V",
     },
   ];
 
@@ -88,7 +88,7 @@ export default function TestimonialsNew() {
               </div>
 
               {/* Review Text */}
-              <p className={styles.reviewText}>"{testimonial.text}"</p>
+              <p className={styles.reviewText}>{testimonial.text}</p>
             </div>
           ))}
         </div>
@@ -116,7 +116,6 @@ export default function TestimonialsNew() {
             </svg>
             <div className={styles.badgeText}>
               <div className={styles.badgeTitle}>Google Reviews</div>
-              <div className={styles.badgeSubtitle}>Verified Reviews</div>
             </div>
           </div>
         </div>
